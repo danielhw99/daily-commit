@@ -83,4 +83,70 @@
 <p>※ 공지 - 2023년 4월 21일 문제 지문이 리뉴얼되었습니다.</p>
 
 
-> 출처: 프로그래머스 코딩 테스트 연습, https://school.programmers.co.kr/learn/challenges
+> 출처: 프로그래머스 코딩 테스트 연습, https://school.programmers.co.kr/learn/challenges\
+
+```
+from collections import deque
+
+def solution(p, loc):
+    answer = 0
+    q = deque()
+    
+    for e in p:
+        q.append(e)
+    t_val = p[loc]
+    mx = 0
+    cnt = 0
+    while(q):
+        mx = max(q)
+        print("mx : ", mx, "count : " , cnt, "t_val : ", t_val, "\n")
+        if q[0] < mx:
+            idx_0 = q.popleft()
+            q.append(idx_0)
+            loc = (loc-1) % len(q)
+        elif q[0] >= mx:
+            
+            cnt += 1
+            loc = (loc-1) % len(q)
+            cur = q.popleft()
+            if loc == 0 and t_val == max:
+                return cnt
+            
+        
+        print("loc = ", loc, q)
+    return answer
+```
+
+
+```
+from collections import deque
+
+def solution(p, loc):
+    answer = 0
+    q = deque()
+    
+    for e in p:
+        q.append(e)
+        
+    t_val = p[loc]
+    mx = 0
+    cnt = 0
+    while(q):
+        mx = max(q)
+        
+        if q[0] < mx:
+            v = q.popleft()
+            q.append(v)
+            loc = (loc-1) % len(q)
+        elif q[0] >= mx:
+            
+            cnt += 1
+            
+            if loc == 0:
+                return cnt
+            
+            loc -= 1
+            q.popleft()
+            
+    return answer
+```
