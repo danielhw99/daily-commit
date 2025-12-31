@@ -1,4 +1,3 @@
-# BOJ 1021 - 회전하는 큐 (Python)
 import sys
 from collections import deque
 
@@ -28,3 +27,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
