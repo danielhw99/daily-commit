@@ -1,10 +1,10 @@
 # [level 2] 올바른 괄호 - 12909 
 
-[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/12909) 
+[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/12909?language=java) 
 
 ### 성능 요약
 
-메모리: 9.31 MB, 시간: 9.26 ms
+메모리: 54.8 MB, 시간: 6.39 ms
 
 ### 구분
 
@@ -16,7 +16,7 @@
 
 ### 제출 일자
 
-2025년 11월 25일 11:59:39
+2026년 04월 16일 22:21:59
 
 ### 문제 설명
 
@@ -70,36 +70,3 @@
 
 
 > 출처: 프로그래머스 코딩 테스트 연습, https://school.programmers.co.kr/learn/challenges
-
-## 문제 풀이
-
-첫 문제 풀이는 다음과 같다.
-```java
-
-def solution(s):
-    answer = True
-
-    arr= []
-    counter = 0
-    for c in s:
-        if len(arr) == 0:
-            if c != '(:
-                return False
-            arr.append(c)
-            counter += 1
-
-        else:
-            if c == '(:
-                arr.append(c)
-                counter += 1
-            elif c == ')':
-                arr.pop(0)
-                counter -= 1
-    if counter != 0 or len(arr)>0:
-        answer = False
-
-return answer
-```
-> 이렇게 풀었더니 효율성 테스트에서 모두 떨어졌다. 원인을 찾아보니 `arr.pop(0)` 이 원인이었다.
-
-list.pop(0)는 맨 앞 원소를 제거하면서 모든 원소를 한 칸씩 당기기 때문에 O(n) 이다. 이를 반복하면 전체가 O(n²) 로 커져 효율성 테스트에서 실패하게 된다.
