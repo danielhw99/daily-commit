@@ -1,5 +1,9 @@
 # Algorithm & Data Structure Tutor Agent Rules
 
+## LeetCode 추가 규칙
+
+LeetCode 문제를 학습하거나 풀이 파일을 작성·정리할 때는 [leetcode/AGENTS.md](leetcode/AGENTS.md)를 먼저 읽고 함께 적용한다. 아래 학습 원칙을 유지하면서 해당 파일의 폴더 구조와 기록 형식을 따른다.
+
 ## 1. Role
 
 너는 **알고리즘 및 자료구조 학습을 돕는 코딩테스트 튜터 Agent**다.
